@@ -3,6 +3,7 @@ import { Drawer, List, ListItemText, ListItem, ListItemIcon, makeStyles, Typogra
 import { AddCircleOutlineOutlined, SubjectOutlined } from '@material-ui/icons';
 import { useHistory, useLocation } from "react-router-dom";
 import { format } from "date-fns";
+import Avatar from "@material-ui/core/Avatar";
 
 const drawerWidth = 240
 
@@ -10,7 +11,7 @@ const useStyles = makeStyles((theme) => {
     return {
     page: {
         background: '#f9f9f9',
-        width: '100%%',
+        width: '100%',
         padding: theme.spacing(3)
     },
     drawer: {
@@ -29,11 +30,15 @@ const useStyles = makeStyles((theme) => {
         padding: theme.spacing(2)
     },
     appbar: {
-        width: `calc(100% - ${drawerWidth}px)`
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth
     },
     toolbar: theme.mixins.toolbar,
     date: {
         flexGrow: 1
+    },
+    avatar: {
+        marginLeft: theme.spacing(2)
     }
 }})
 
@@ -58,8 +63,10 @@ export default function Layout({children}) {
     return (
         <div className={classes.root} >
             <AppBar
+             position="fixed"
              className={classes.appbar}
              elevation={0}
+             color="primary"
             >
                 <Toolbar>
                     <Typography className={classes.date} >
@@ -68,6 +75,7 @@ export default function Layout({children}) {
                     <Typography>
                         Jorge
                     </Typography>
+                    <Avatar src="./avatar.png" className={classes.avatar} />
                 </Toolbar>
             </AppBar>
 

@@ -8,7 +8,7 @@ import Layout from './components/Layout';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#000"
+      main: "#fefefe"
     },
     secondary: purple, 
   },
